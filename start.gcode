@@ -98,7 +98,7 @@ M620 S[initial_no_support_extruder]A   ; switch material if AMS exist
 {endif}
     M106 P1 S0
     G92 E0
-    G1 E50 F200
+    G1 E25 F200
     M400
     M1002 set_filament_type:{filament_type[initial_no_support_extruder]}
 {if (filament_type[initial_no_support_extruder] == "PLA") && (nozzle_diameter != 0.2)}
@@ -107,11 +107,11 @@ M620 S[initial_no_support_extruder]A   ; switch material if AMS exist
     M104 S{flush_temperatures[initial_no_support_extruder]}
 {endif}
     G92 E0
-    G1 E50 F{flush_volumetric_speeds[initial_no_support_extruder]/2.4053*60}
+    G1 E20 F{flush_volumetric_speeds[initial_no_support_extruder]/2.4053*60}
     M400
     M106 P1 S178
     G92 E0
-    G1 E5 F{flush_volumetric_speeds[initial_no_support_extruder]/2.4053*60}
+    G1 E4 F{flush_volumetric_speeds[initial_no_support_extruder]/2.4053*60}
     M109 S{nozzle_temperature_initial_layer[initial_no_support_extruder]-20} ; drop nozzle temp, make filament shink a bit
     M104 S{nozzle_temperature_initial_layer[initial_no_support_extruder]-40}
     G92 E0
@@ -149,15 +149,15 @@ M622 S1
 M623
 
 G1 Z5 F3000
-G1 X90 Y-1 F30000
-M400 P200
-M970.3 Q1 A7 K0 O2
-M974 Q1 S2 P0
+;G1 X90 Y-1 F30000
+;M400 P200
+;M970.3 Q1 A7 K0 O2
+;M974 Q1 S2 P0
 
-G1 X90 Y0 Z5 F30000
-M400 P200
-M970 Q0 A10 B50 C90 H15 K0 M20 O3
-M974 Q0 S2 P0
+;G1 X90 Y0 Z5 F30000
+;M400 P200
+;M970 Q0 A10 B50 C90 H15 K0 M20 O3
+;M974 Q0 S2 P0
 
 M975 S1
 G1 F30000
